@@ -1,6 +1,11 @@
-on: [workflow_call]
 name: 'Check'
-permissions: {}
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
 
 jobs:
   shellcheck:
@@ -8,10 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         env:
           SHELLCHECK_OPTS: -x --source-path=src -e SC1091 -e SC2001 -e SC2002 -e SC2034 -e SC2064 -e SC2153 -e SC2317 -e SC2028
+
       - name: Validate XML
         uses: action-pack/valid-xml@v1
         with:
