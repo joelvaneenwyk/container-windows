@@ -1,0 +1,11 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions:
+  - name: container-windows
+    path: ./.github/config/container-windows.dict
+    addWords: true
+dictionaries:
+  - container-windows
+words: []
+ignoreWords: []
+import: []
