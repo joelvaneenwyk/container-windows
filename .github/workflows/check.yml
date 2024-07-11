@@ -1,5 +1,5 @@
 on: [workflow_call]
-name: "Check"
+name: 'Check'
 permissions: {}
 
 jobs:
@@ -15,8 +15,8 @@ jobs:
       - name: Validate XML
         uses: action-pack/valid-xml@v1
         with:
-         path: "assets"
-         file-endings: ".xml"
+          path: 'assets'
+          file-endings: '.xml'
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:

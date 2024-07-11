@@ -2,19 +2,22 @@
 
 <!-- markdownlint-disable MD033 MD045-->
 
-<h1 align="center">Windows<br />
-<div align="center">
-<a href="https://github.com/joelvaneenwyk/container-windows"><img src="https://github.com/joelvaneenwyk/container-windows/raw/master/.github/logo.png" title="Logo" style="max-width:100%;" width="128" /></a>
-</div>
-<div align="center">
+<h1 align="center">
+  Windows
+  <br />
+  <div align="center">
+    <a href="https://github.com/joelvaneenwyk/container-windows"><img src="./.github/logo.png" title="Logo" style="max-width:100%;" width="128" /></a>
+  </div>
 
-[![Build]][build_url]
-[![Version]][tag_url]
-[![Size]][tag_url]
-[![Package]][pkg_url]
-[![Pulls]][hub_url]
+  <div align="center">
 
-</div></h1>
+  [![Version]][tag_url]
+  [![Size]][tag_url]
+  [![Package]][pkg_url]
+  [![Pulls]][hub_url]
+
+  </div>
+</h1>
 
 Windows inside a Docker container.
 
@@ -39,7 +42,7 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "win11"
+      VERSION: 'win11'
     devices:
       - /dev/kvm
     cap_add:
@@ -67,7 +70,7 @@ kubectl apply -f kubernetes.yml
 
 ### How do I use it?
 
-  Very simple! These are the steps:
+Very simple! These are the steps:
 
 - Start the container and connect to [port 8006](http://localhost:8006) using your web browser.
 
@@ -79,279 +82,279 @@ kubectl apply -f kubernetes.yml
 
 ### How do I select the Windows version?
 
-  By default, Windows 11 will be installed. But you can add the `VERSION` environment variable to your compose file, in order to specify an alternative Windows version to be downloaded:
+By default, Windows 11 will be installed. But you can add the `VERSION` environment variable to your compose file, in order to specify an alternative Windows version to be downloaded:
 
-  ```yaml
-  environment:
-    VERSION: "win11"
-  ```
+```yaml
+environment:
+  VERSION: 'win11'
+```
 
-  Select from the values below:
+Select from the values below:
 
-  | **Value** | **Version**              | **Size** |
-  |---|---|---|
-  | `win11`   | Windows 11 Pro           | 6.4 GB   |
-  | `win11e`  | Windows 11 Enterprise    | 5.8 GB   |
-  | `win10`   | Windows 10 Pro           | 5.7 GB   |
-  | `ltsc10`  | Windows 10 LTSC          | 4.6 GB   |
-  | `win10e`  | Windows 10 Enterprise    | 5.2 GB   |
-  ||||
-  | `win8`    | Windows 8.1 Pro          | 4.0 GB   |
-  | `win8e`   | Windows 8.1 Enterprise   | 3.7 GB   |
-  | `win7`    | Windows 7 Enterprise     | 3.0 GB   |
-  | `vista`   | Windows Vista Enterprise | 3.0 GB   |
-  | `winxp`   | Windows XP Professional  | 0.6 GB   |
-  ||||
-  | `2022`    | Windows Server 2022      | 4.7 GB   |
-  | `2019`    | Windows Server 2019      | 5.3 GB   |
-  | `2016`    | Windows Server 2016      | 6.5 GB   |
-  | `2012`    | Windows Server 2012      | 4.3 GB   |
-  | `2008`    | Windows Server 2008      | 3.0 GB   |
-  ||||
-  | `core11`  | Tiny 11 Core             | 2.1 GB   |
-  | `tiny11`  | Tiny 11                  | 3.8 GB   |
-  | `tiny10`  | Tiny 10                  | 3.6 GB   |
+| **Value** | **Version**              | **Size** |
+| --------- | ------------------------ | -------- |
+| `win11`   | Windows 11 Pro           | 6.4 GB   |
+| `win11e`  | Windows 11 Enterprise    | 5.8 GB   |
+| `win10`   | Windows 10 Pro           | 5.7 GB   |
+| `ltsc10`  | Windows 10 LTSC          | 4.6 GB   |
+| `win10e`  | Windows 10 Enterprise    | 5.2 GB   |
+|           |                          |          |
+| `win8`    | Windows 8.1 Pro          | 4.0 GB   |
+| `win8e`   | Windows 8.1 Enterprise   | 3.7 GB   |
+| `win7`    | Windows 7 Enterprise     | 3.0 GB   |
+| `vista`   | Windows Vista Enterprise | 3.0 GB   |
+| `winxp`   | Windows XP Professional  | 0.6 GB   |
+|           |                          |          |
+| `2022`    | Windows Server 2022      | 4.7 GB   |
+| `2019`    | Windows Server 2019      | 5.3 GB   |
+| `2016`    | Windows Server 2016      | 6.5 GB   |
+| `2012`    | Windows Server 2012      | 4.3 GB   |
+| `2008`    | Windows Server 2008      | 3.0 GB   |
+|           |                          |          |
+| `core11`  | Tiny 11 Core             | 2.1 GB   |
+| `tiny11`  | Tiny 11                  | 3.8 GB   |
+| `tiny10`  | Tiny 10                  | 3.6 GB   |
 
 > [!TIP]
 > To install ARM64 versions of Windows use [joelvaneenwyk/container-windows-arm](https://github.com/joelvaneenwyk/container-windows-arm/).
 
 ### How do I select the Windows language?
 
-  By default, the English version of Windows will be downloaded. But you can add the `LANGUAGE` environment variable to your compose file, in order to specify an alternative language:
+By default, the English version of Windows will be downloaded. But you can add the `LANGUAGE` environment variable to your compose file, in order to specify an alternative language:
 
-  ```yaml
-  environment:
-    LANGUAGE: "French"
-  ```
+```yaml
+environment:
+  LANGUAGE: 'French'
+```
 
-  You can choose between: 🇦🇪 Arabic, 🇧🇬 Bulgarian, 🇨🇳 Chinese, 🇭🇷 Croatian, 🇨🇿 Czech, 🇩🇰 Danish, 🇳🇱 Dutch, 🇬🇧 English, 🇪🇪 Estionian, 🇫🇮 Finnish, 🇫🇷 French, 🇩🇪 German, 🇬🇷 Greek, 🇮🇱 Hebrew, 🇭🇺 Hungarian, 🇮🇹 Italian, 🇯🇵 Japanese, 🇰🇷 Korean, 🇱🇻 Latvian, 🇱🇹 Lithuanian, 🇳🇴 Norwegian, 🇵🇱 Polish, 🇵🇹 Portuguese, 🇷🇴 Romanian, 🇷🇺 Russian, 🇷🇸 Serbian, 🇸🇰 Slovak, 🇸🇮 Slovenian, 🇪🇸 Spanish, 🇸🇪 Swedish, 🇹🇭 Thai, 🇹🇷 Turkish and 🇺🇦 Ukrainian.
+You can choose between: 🇦🇪 Arabic, 🇧🇬 Bulgarian, 🇨🇳 Chinese, 🇭🇷 Croatian, 🇨🇿 Czech, 🇩🇰 Danish, 🇳🇱 Dutch, 🇬🇧 English, 🇪🇪 Estionian, 🇫🇮 Finnish, 🇫🇷 French, 🇩🇪 German, 🇬🇷 Greek, 🇮🇱 Hebrew, 🇭🇺 Hungarian, 🇮🇹 Italian, 🇯🇵 Japanese, 🇰🇷 Korean, 🇱🇻 Latvian, 🇱🇹 Lithuanian, 🇳🇴 Norwegian, 🇵🇱 Polish, 🇵🇹 Portuguese, 🇷🇴 Romanian, 🇷🇺 Russian, 🇷🇸 Serbian, 🇸🇰 Slovak, 🇸🇮 Slovenian, 🇪🇸 Spanish, 🇸🇪 Swedish, 🇹🇭 Thai, 🇹🇷 Turkish and 🇺🇦 Ukrainian.
 
 ### How do I select the keyboard layout?
 
-  If you want to use a keyboard layout or locale that is not the default for your selected language, you can add the `KEYBOARD` and `REGION` variables with a culture code, like this:
+If you want to use a keyboard layout or locale that is not the default for your selected language, you can add the `KEYBOARD` and `REGION` variables with a culture code, like this:
 
-  ```yaml
-  environment:
-    REGION: "en-US"
-    KEYBOARD: "en-US"
-  ```
+```yaml
+environment:
+  REGION: 'en-US'
+  KEYBOARD: 'en-US'
+```
 
 > [!NOTE]
 > Changing these values will have no effect after the installation has been performed already. Use the control panel inside Windows in that case.
 
 ### How do I change the storage location?
 
-  To change the storage location, include the following bind mount in your compose file:
+To change the storage location, include the following bind mount in your compose file:
 
-  ```yaml
-  volumes:
-    - /var/win:/storage
-  ```
+```yaml
+volumes:
+  - /var/win:/storage
+```
 
-  Replace the example path `/var/win` with the desired storage folder.
+Replace the example path `/var/win` with the desired storage folder.
 
 ### How do I change the size of the disk?
 
-  To expand the default size of 64 GB, add the `DISK_SIZE` setting to your compose file and set it to your preferred capacity:
+To expand the default size of 64 GB, add the `DISK_SIZE` setting to your compose file and set it to your preferred capacity:
 
-  ```yaml
-  environment:
-    DISK_SIZE: "256G"
-  ```
+```yaml
+environment:
+  DISK_SIZE: '256G'
+```
 
 > [!TIP]
 > This can also be used to resize the existing disk to a larger capacity without any data loss.
 
 ### How do I share files with the host?
 
-  Open 'File Explorer' and click on the 'Network' section, you will see a computer called `host.lan`. Double-click it and it will show a folder called `Data`, which can be binded to any folder on your host via the compose file:
+Open 'File Explorer' and click on the 'Network' section, you will see a computer called `host.lan`. Double-click it and it will show a folder called `Data`, which can be binded to any folder on your host via the compose file:
 
-  ```yaml
-  volumes:
-    -  /home/user/example:/shared
-  ```
+```yaml
+volumes:
+  - /home/user/example:/shared
+```
 
-  The example folder `/home/user/example` will be available as `\\host.lan\Data`.
+The example folder `/home/user/example` will be available as `\\host.lan\Data`.
 
 > [!TIP]
 > You can map this path to a drive letter in Windows, for easier access.
 
 ### How do I install a custom image?
 
-  In order to download an unsupported ISO image that is not selectable from the list above, specify the URL of that ISO in the `VERSION` environment variable, for example:
+In order to download an unsupported ISO image that is not selectable from the list above, specify the URL of that ISO in the `VERSION` environment variable, for example:
 
-  ```yaml
-  environment:
-    VERSION: "https://example.com/win.iso"
-  ```
+```yaml
+environment:
+  VERSION: 'https://example.com/win.iso'
+```
 
-  Alternatively, you can also skip the download and use a local file instead, by binding it in your compose file in this way:
+Alternatively, you can also skip the download and use a local file instead, by binding it in your compose file in this way:
 
-  ```yaml
-  volumes:
-    - /home/user/example.iso:/custom.iso
-  ```
+```yaml
+volumes:
+  - /home/user/example.iso:/custom.iso
+```
 
-  Replace the example path `/home/user/example.iso` with the filename of your desired ISO file, the value of `VERSION` will be ignored in this case.
+Replace the example path `/home/user/example.iso` with the filename of your desired ISO file, the value of `VERSION` will be ignored in this case.
 
 ### How do I run a script after installation?
 
-  To run your own script after installation, you can create a file called `install.bat` and place it in a folder together with any additional files it needs (software to be installed for example). Then bind that folder in your compose file like this:
+To run your own script after installation, you can create a file called `install.bat` and place it in a folder together with any additional files it needs (software to be installed for example). Then bind that folder in your compose file like this:
 
-  ```yaml
-  volumes:
-    -  /home/user/example:/oem
-  ```
+```yaml
+volumes:
+  - /home/user/example:/oem
+```
 
-  The example folder `/home/user/example` will be copied to `C:\OEM` during installation and the containing `install.bat` will be executed during the last step.
+The example folder `/home/user/example` will be copied to `C:\OEM` during installation and the containing `install.bat` will be executed during the last step.
 
 ### How do I perform a manual installation?
 
-  It's best to stick to the automatic installation, as it adjusts various settings to prevent common issues when running Windows inside a virtual environment.
+It's best to stick to the automatic installation, as it adjusts various settings to prevent common issues when running Windows inside a virtual environment.
 
-  However, if you insist on performing the installation manually, add the following environment variable to your compose file:
+However, if you insist on performing the installation manually, add the following environment variable to your compose file:
 
-  ```yaml
-  environment:
-    MANUAL: "Y"
-  ```
+```yaml
+environment:
+  MANUAL: 'Y'
+```
 
 ### How do I change the amount of CPU or RAM?
 
-  By default, the container will be allowed to use a maximum of 2 CPU cores and 4 GB of RAM.
+By default, the container will be allowed to use a maximum of 2 CPU cores and 4 GB of RAM.
 
-  If you want to adjust this, you can specify the desired amount using the following environment variables:
+If you want to adjust this, you can specify the desired amount using the following environment variables:
 
-  ```yaml
-  environment:
-    RAM_SIZE: "8G"
-    CPU_CORES: "4"
-  ```
+```yaml
+environment:
+  RAM_SIZE: '8G'
+  CPU_CORES: '4'
+```
 
 ### How do I configure the username and password?
 
-  By default, a user called `Docker` is created during the installation, with an empty password.
+By default, a user called `Docker` is created during the installation, with an empty password.
 
-  If you want to use different credentials, you can change them in your compose file:
+If you want to use different credentials, you can change them in your compose file:
 
-  ```yaml
-  environment:
-    USERNAME: "bill"
-    PASSWORD: "gates"
-  ```
+```yaml
+environment:
+  USERNAME: 'bill'
+  PASSWORD: 'gates'
+```
 
 ### How do I connect using RDP?
 
-  The web-viewer is mainly meant to be used during installation, as its picture quality is low, and it has no audio or clipboard for example.
+The web-viewer is mainly meant to be used during installation, as its picture quality is low, and it has no audio or clipboard for example.
 
-  So for a better experience you can connect using any Microsoft Remote Desktop client to the IP of the container, using the username `Docker` and by leaving the password empty.
+So for a better experience you can connect using any Microsoft Remote Desktop client to the IP of the container, using the username `Docker` and by leaving the password empty.
 
-  There is a RDP client for [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) available from the Play Store and one for [iOS](https://apps.apple.com/nl/app/microsoft-remote-desktop/id714464092?l=en-GB) in the Apple Store. For Linux you can use [FreeRDP](https://www.freerdp.com/) and on Windows just type `mstsc` in the search box.
+There is a RDP client for [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) available from the Play Store and one for [iOS](https://apps.apple.com/nl/app/microsoft-remote-desktop/id714464092?l=en-GB) in the Apple Store. For Linux you can use [FreeRDP](https://www.freerdp.com/) and on Windows just type `mstsc` in the search box.
 
 ### How do I assign an individual IP address to the container?
 
-  By default, the container uses bridge networking, which shares the IP address with the host.
+By default, the container uses bridge networking, which shares the IP address with the host.
 
-  If you want to assign an individual IP address to the container, you can create a macvlan network as follows:
+If you want to assign an individual IP address to the container, you can create a macvlan network as follows:
 
-  ```bash
-  docker network create -d macvlan \
-      --subnet=192.168.0.0/24 \
-      --gateway=192.168.0.1 \
-      --ip-range=192.168.0.100/28 \
-      -o parent=eth0 vlan
-  ```
+```bash
+docker network create -d macvlan \
+    --subnet=192.168.0.0/24 \
+    --gateway=192.168.0.1 \
+    --ip-range=192.168.0.100/28 \
+    -o parent=eth0 vlan
+```
 
-  Be sure to modify these values to match your local subnet.
+Be sure to modify these values to match your local subnet.
 
-  Once you have created the network, change your compose file to look as follows:
+Once you have created the network, change your compose file to look as follows:
 
-  ```yaml
-  services:
-    windows:
-      container_name: windows
-      ..<snip>..
-      networks:
-        vlan:
-          ipv4_address: 192.168.0.100
+```yaml
+services:
+  windows:
+    container_name: windows
+    ..<snip>..
+    networks:
+      vlan:
+        ipv4_address: 192.168.0.100
 
-  networks:
-    vlan:
-      external: true
-  ```
+networks:
+  vlan:
+    external: true
+```
 
-  An added benefit of this approach is that you won't have to perform any port mapping anymore, since all ports will be exposed by default.
+An added benefit of this approach is that you won't have to perform any port mapping anymore, since all ports will be exposed by default.
 
 > [!IMPORTANT]
 > This IP address won't be accessible from the Docker host due to the design of macvlan, which doesn't permit communication between the two. If this is a concern, you need to create a [second macvlan](https://blog.oddbit.com/post/2018-03-12-using-docker-macvlan-networks/#host-access) as a workaround.
 
 ### How can Windows acquire an IP address from my router?
 
-  After configuring the container for [macvlan](#how-do-i-assign-an-individual-ip-address-to-the-container), it is possible for Windows to become part of your home network by requesting an IP from your router, just like a real PC.
+After configuring the container for [macvlan](#how-do-i-assign-an-individual-ip-address-to-the-container), it is possible for Windows to become part of your home network by requesting an IP from your router, just like a real PC.
 
-  To enable this mode, add the following lines to your compose file:
+To enable this mode, add the following lines to your compose file:
 
-  ```yaml
-  environment:
-    DHCP: "Y"
-  devices:
-    - /dev/vhost-net
-  device_cgroup_rules:
-    - 'c *:* rwm'
-  ```
+```yaml
+environment:
+  DHCP: 'Y'
+devices:
+  - /dev/vhost-net
+device_cgroup_rules:
+  - 'c *:* rwm'
+```
 
 > [!NOTE]
 > In this mode, the container and Windows will each have their own separate IPs.
 
 ### How do I add multiple disks?
 
-  To create additional disks, modify your compose file like this:
+To create additional disks, modify your compose file like this:
 
-  ```yaml
-  environment:
-    DISK2_SIZE: "32G"
-    DISK3_SIZE: "64G"
-  volumes:
-    - /home/example:/storage2
-    - /mnt/data/example:/storage3
-  ```
+```yaml
+environment:
+  DISK2_SIZE: '32G'
+  DISK3_SIZE: '64G'
+volumes:
+  - /home/example:/storage2
+  - /mnt/data/example:/storage3
+```
 
 ### How do I pass-through a disk?
 
-  It is possible to pass-through disk devices directly by adding them to your compose file in this way:
+It is possible to pass-through disk devices directly by adding them to your compose file in this way:
 
-  ```yaml
-  devices:
-    - /dev/sdb:/disk1
-    - /dev/sdc:/disk2
-  ```
+```yaml
+devices:
+  - /dev/sdb:/disk1
+  - /dev/sdc:/disk2
+```
 
-  Use `/disk1` if you want it to become your main drive, and use `/disk2` and higher to add them as secondary drives.
+Use `/disk1` if you want it to become your main drive, and use `/disk2` and higher to add them as secondary drives.
 
 ### How do I pass-through a USB device?
 
-  To pass-through a USB device, first lookup its vendor and product id via the `lsusb` command, then add them to your compose file like this:
+To pass-through a USB device, first lookup its vendor and product id via the `lsusb` command, then add them to your compose file like this:
 
-  ```yaml
-  environment:
-    ARGUMENTS: "-device usb-host,vendorid=0x1234,productid=0x1234"
-  devices:
-    - /dev/bus/usb
-  ```
+```yaml
+environment:
+  ARGUMENTS: '-device usb-host,vendorid=0x1234,productid=0x1234'
+devices:
+  - /dev/bus/usb
+```
 
 > [!IMPORTANT]
 > If the device is a USB disk drive, please wait until after the installation is completed before connecting it. Otherwise the installation may fail, as the order of the disks can get rearranged.
 
 ### How do I verify if my system supports KVM?
 
-  To verify that your system supports KVM, run the following commands:
+To verify that your system supports KVM, run the following commands:
 
-  ```bash
-  sudo apt install cpu-checker
-  sudo kvm-ok
-  ```
+```bash
+sudo apt install cpu-checker
+sudo kvm-ok
+```
 
-  If you receive an error from `kvm-ok` indicating that KVM acceleration can't be used, please check whether:
+If you receive an error from `kvm-ok` indicating that KVM acceleration can't be used, please check whether:
 
 - the virtualization extensions (`Intel VT-x` or `AMD SVM`) are enabled in your BIOS.
 
@@ -365,11 +368,11 @@ kubectl apply -f kubernetes.yml
 
 ### How do I run macOS in a container?
 
-  You can use [dockur/macos](https://github.com/dockur/macos) for that. It shares many of the same features, except for the automatic installation.
+You can use [dockur/macos](https://github.com/dockur/macos) for that. It shares many of the same features, except for the automatic installation.
 
 ### Is this project legal?
 
-  Yes, this project contains only open-source code and does not distribute any copyrighted material. Any product keys found in the code are just generic placeholders provided by Microsoft for trial purposes. So under all applicable laws, this project will be considered legal.
+Yes, this project contains only open-source code and does not distribute any copyrighted material. Any product keys found in the code are just generic placeholders provided by Microsoft for trial purposes. So under all applicable laws, this project will be considered legal.
 
 ## Stars 🌟
 
@@ -377,13 +380,12 @@ kubectl apply -f kubernetes.yml
 
 ## Disclaimer ⚖️
 
-*The product names, logos, brands, and other trademarks referred to within this project are the property of their respective trademark holders. This project is not affiliated, sponsored, or endorsed by Microsoft Corporation.*
+_The product names, logos, brands, and other trademarks referred to within this project are the property of their respective trademark holders. This project is not affiliated, sponsored, or endorsed by Microsoft Corporation._
 
 [build_url]: https://github.com/joelvaneenwyk/container-windows/
 [hub_url]: https://hub.docker.com/r/dockurr/windows/
 [tag_url]: https://hub.docker.com/r/dockurr/windows/tags
 [pkg_url]: https://github.com/joelvaneenwyk/container-windows/pkgs/container/windows
-
 [Build]: https://github.com/joelvaneenwyk/container-windows/actions/workflows/build.yml/badge.svg
 [Size]: https://img.shields.io/docker/image-size/dockurr/windows/latest?color=066da5&label=size
 [Pulls]: https://img.shields.io/docker/pulls/dockurr/windows.svg?style=flat&label=pulls&logo=docker
