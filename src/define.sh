@@ -2085,7 +2085,7 @@ prepareInstall() {
   local password="*"
 
   [ -n "$PASSWORD" ] && password="$PASSWORD"
-  [ -n "$USERNAME" ] && username=$(echo "$USERNAME" | sed 's/[^[:alnum:]@!._-]//g')
+  [ -n "$USERNAME" ] && username="$(echo "$USERNAME" | sed 's/[^[:alnum:]@!._-]//g')"
 
   find "$target" -maxdepth 1 -type f -iname winnt.sif -exec rm {} \;
 

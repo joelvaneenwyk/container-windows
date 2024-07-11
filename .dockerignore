@@ -1,6 +1,11 @@
+#
+# dockur/windows | Docker ignore list
+#
+
+.git/
+.github/
+
 .dockerignore
-.git
-.github
 .gitignore
 .gitlab-ci.yml
 .gitmodules

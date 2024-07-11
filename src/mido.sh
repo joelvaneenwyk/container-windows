@@ -2,7 +2,6 @@
 set -Eeuo pipefail
 
 handle_curl_error() {
-
   local error_code="$1"
 
   case "$error_code" in

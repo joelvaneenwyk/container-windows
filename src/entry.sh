@@ -1,25 +1,38 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1091
+
 set -Eeuo pipefail
 
 : "${BOOT_MODE:="windows"}"
 
-APP="Windows"
-SUPPORT="https://github.com/dockur/windows"
+CURRENT_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cd /run
+# Check if we are running in Docker container right now
+if [ -f "/.dockerenv" ] && [ -d "/run" ] && [ -e "/run/entry.sh" ]; then
+  DOCKER_WINDOWS_SCRIPTS_PATH="/run"
+elif [ -d "$CURRENT_SCRIPT_DIR" ]; then
+  DOCKER_WINDOWS_SCRIPTS_PATH="$DIR"
+else
+  exit 55
+fi
 
-. reset.sh      # Initialize system
-. define.sh     # Define versions
-. mido.sh       # Download code
-. install.sh    # Run installation
-. disk.sh       # Initialize disks
-. display.sh    # Initialize graphics
-. network.sh    # Initialize network
-. samba.sh      # Configure samba
-. boot.sh       # Configure boot
-. proc.sh       # Initialize processor
-. power.sh      # Configure shutdown
-. config.sh     # Configure arguments
+export APP="Windows"
+export SUPPORT="https://github.com/joelvaneenwyk/container-windows"
+
+cd "$DOCKER_WINDOWS_SCRIPTS_PATH" || exit 56
+
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/reset.sh"      # Initialize system
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/define.sh"     # Define versions
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/mido.sh"       # Download code
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/install.sh"    # Run installation
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/disk.sh"       # Initialize disks
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/display.sh"    # Initialize graphics
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/network.sh"    # Initialize network
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/samba.sh"      # Configure samba
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/boot.sh"       # Configure boot
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/proc.sh"       # Initialize processor
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/power.sh"      # Configure shutdown
+. "$DOCKER_WINDOWS_SCRIPTS_PATH/config.sh"     # Configure arguments
 
 trap - ERR
 
