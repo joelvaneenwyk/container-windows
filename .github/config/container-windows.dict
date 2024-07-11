@@ -31,6 +31,8 @@ diferent
 DISPLAYNAME
 dockerbridge
 dockerenv
+dockerhub
+DOCKERHUB
 Dockur
 dockurr
 Dont
@@ -49,6 +51,7 @@ ffbbd
 filesize
 genisoimage
 giga
+hadolint
 HKCU
 HKEY
 hrvatski
@@ -61,6 +64,7 @@ latvijas
 lietuvos
 ltsc
 LTSC
+ludeeus
 LZMS
 markdownlint
 Mido
@@ -105,6 +109,8 @@ SCRNSAVE
 SEGV
 setupp
 setupxp
+shellcheck
+SHELLCHECK
 SIGABRT
 skuid
 slovenski
