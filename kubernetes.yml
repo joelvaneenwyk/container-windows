@@ -8,6 +8,7 @@ spec:
   resources:
     requests:
       storage: 64Gi
+
 ---
 apiVersion: v1
 kind: Pod
