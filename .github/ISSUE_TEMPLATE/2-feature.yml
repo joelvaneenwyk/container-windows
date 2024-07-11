@@ -1,7 +1,7 @@
 name: "\U0001F680 Feature request"
 description: Suggest an idea for improving the container
-title: "[Feature]: "
-labels: ["enhancement"]
+title: '[Feature]: '
+labels: ['enhancement']
 body:
   - type: textarea
     id: problem

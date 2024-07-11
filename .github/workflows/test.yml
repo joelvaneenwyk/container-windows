@@ -8,7 +8,7 @@ on:
       - '.github/workflows/check.yml'
       - 'Dockerfile'
 
-name: "Test"
+name: 'Test'
 permissions: {}
 
 jobs:
