@@ -6,9 +6,9 @@ body:
   - type: checkboxes
     attributes:
       label: Is your question not already answered in the FAQ?
-      description: Please read the [FAQ](https://github.com/dockur/windows/blob/master/readme.md) carefully to avoid asking duplicate questions.
+      description: Please read the [FAQ](https://github.com/joelvaneenwyk/container-windows/blob/main/README.md) carefully to avoid asking duplicate questions.
       options:
-        - label: I made sure the question is not listed in the [FAQ](https://github.com/dockur/windows/blob/master/readme.md).
+        - label: I made sure the question is not listed in the [FAQ](https://github.com/joelvaneenwyk/container-windows/blob/main/README.md).
           required: true
   - type: checkboxes
     attributes:
