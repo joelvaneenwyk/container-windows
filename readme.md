@@ -1,6 +1,10 @@
+# Docker // Windows
+
+<!-- markdownlint-disable MD033 MD045-->
+
 <h1 align="center">Windows<br />
 <div align="center">
-<a href="https://github.com/dockur/windows"><img src="https://github.com/dockur/windows/raw/master/.github/logo.png" title="Logo" style="max-width:100%;" width="128" /></a>
+<a href="https://github.com/joelvaneenwyk/container-windows"><img src="https://github.com/joelvaneenwyk/container-windows/raw/master/.github/logo.png" title="Logo" style="max-width:100%;" width="128" /></a>
 </div>
 <div align="center">
 
@@ -16,10 +20,10 @@ Windows inside a Docker container.
 
 ## Features ✨
 
- - Multi-language
- - ISO downloader
- - KVM acceleration
- - Web-based viewer
+- Multi-language
+- ISO downloader
+- KVM acceleration
+- Web-based viewer
 
 ## Video 📺
 
@@ -64,13 +68,13 @@ kubectl apply -f kubernetes.yml
 ### How do I use it?
 
   Very simple! These are the steps:
-  
-  - Start the container and connect to [port 8006](http://localhost:8006) using your web browser.
 
-  - Sit back and relax while the magic happens, the whole installation will be performed fully automatic.
+- Start the container and connect to [port 8006](http://localhost:8006) using your web browser.
 
-  - Once you see the desktop, your Windows installation is ready for use.
-  
+- Sit back and relax while the magic happens, the whole installation will be performed fully automatic.
+
+- Once you see the desktop, your Windows installation is ready for use.
+
   Enjoy your brand new machine, and don't forget to star this repo!
 
 ### How do I select the Windows version?
@@ -83,7 +87,7 @@ kubectl apply -f kubernetes.yml
   ```
 
   Select from the values below:
-  
+
   | **Value** | **Version**              | **Size** |
   |---|---|---|
   | `win11`   | Windows 11 Pro           | 6.4 GB   |
@@ -91,7 +95,7 @@ kubectl apply -f kubernetes.yml
   | `win10`   | Windows 10 Pro           | 5.7 GB   |
   | `ltsc10`  | Windows 10 LTSC          | 4.6 GB   |
   | `win10e`  | Windows 10 Enterprise    | 5.2 GB   |
-  ||||  
+  ||||
   | `win8`    | Windows 8.1 Pro          | 4.0 GB   |
   | `win8e`   | Windows 8.1 Enterprise   | 3.7 GB   |
   | `win7`    | Windows 7 Enterprise     | 3.0 GB   |
@@ -109,7 +113,7 @@ kubectl apply -f kubernetes.yml
   | `tiny10`  | Tiny 10                  | 3.6 GB   |
 
 > [!TIP]
-> To install ARM64 versions of Windows use [dockur/windows-arm](https://github.com/dockur/windows-arm/).
+> To install ARM64 versions of Windows use [joelvaneenwyk/container-windows-arm](https://github.com/joelvaneenwyk/container-windows-arm/).
 
 ### How do I select the Windows language?
 
@@ -119,7 +123,7 @@ kubectl apply -f kubernetes.yml
   environment:
     LANGUAGE: "French"
   ```
-  
+
   You can choose between: 🇦🇪 Arabic, 🇧🇬 Bulgarian, 🇨🇳 Chinese, 🇭🇷 Croatian, 🇨🇿 Czech, 🇩🇰 Danish, 🇳🇱 Dutch, 🇬🇧 English, 🇪🇪 Estionian, 🇫🇮 Finnish, 🇫🇷 French, 🇩🇪 German, 🇬🇷 Greek, 🇮🇱 Hebrew, 🇭🇺 Hungarian, 🇮🇹 Italian, 🇯🇵 Japanese, 🇰🇷 Korean, 🇱🇻 Latvian, 🇱🇹 Lithuanian, 🇳🇴 Norwegian, 🇵🇱 Polish, 🇵🇹 Portuguese, 🇷🇴 Romanian, 🇷🇺 Russian, 🇷🇸 Serbian, 🇸🇰 Slovak, 🇸🇮 Slovenian, 🇪🇸 Spanish, 🇸🇪 Swedish, 🇹🇭 Thai, 🇹🇷 Turkish and 🇺🇦 Ukrainian.
 
 ### How do I select the keyboard layout?
@@ -132,8 +136,8 @@ kubectl apply -f kubernetes.yml
     KEYBOARD: "en-US"
   ```
 
-> [!NOTE]  
->  Changing these values will have no effect after the installation has been performed already. Use the control panel inside Windows in that case.
+> [!NOTE]
+> Changing these values will have no effect after the installation has been performed already. Use the control panel inside Windows in that case.
 
 ### How do I change the storage location?
 
@@ -154,7 +158,7 @@ kubectl apply -f kubernetes.yml
   environment:
     DISK_SIZE: "256G"
   ```
-  
+
 > [!TIP]
 > This can also be used to resize the existing disk to a larger capacity without any data loss.
 
@@ -167,22 +171,22 @@ kubectl apply -f kubernetes.yml
     -  /home/user/example:/shared
   ```
 
-  The example folder `/home/user/example` will be available as ` \\host.lan\Data`.
-  
+  The example folder `/home/user/example` will be available as `\\host.lan\Data`.
+
 > [!TIP]
 > You can map this path to a drive letter in Windows, for easier access.
 
 ### How do I install a custom image?
 
   In order to download an unsupported ISO image that is not selectable from the list above, specify the URL of that ISO in the `VERSION` environment variable, for example:
-  
+
   ```yaml
   environment:
     VERSION: "https://example.com/win.iso"
   ```
 
   Alternatively, you can also skip the download and use a local file instead, by binding it in your compose file in this way:
-  
+
   ```yaml
   volumes:
     - /home/user/example.iso:/custom.iso
@@ -246,7 +250,7 @@ kubectl apply -f kubernetes.yml
 
 ### How do I assign an individual IP address to the container?
 
-  By default, the container uses bridge networking, which shares the IP address with the host. 
+  By default, the container uses bridge networking, which shares the IP address with the host.
 
   If you want to assign an individual IP address to the container, you can create a macvlan network as follows:
 
@@ -257,8 +261,8 @@ kubectl apply -f kubernetes.yml
       --ip-range=192.168.0.100/28 \
       -o parent=eth0 vlan
   ```
-  
-  Be sure to modify these values to match your local subnet. 
+
+  Be sure to modify these values to match your local subnet.
 
   Once you have created the network, change your compose file to look as follows:
 
@@ -275,10 +279,10 @@ kubectl apply -f kubernetes.yml
     vlan:
       external: true
   ```
- 
+
   An added benefit of this approach is that you won't have to perform any port mapping anymore, since all ports will be exposed by default.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This IP address won't be accessible from the Docker host due to the design of macvlan, which doesn't permit communication between the two. If this is a concern, you need to create a [second macvlan](https://blog.oddbit.com/post/2018-03-12-using-docker-macvlan-networks/#host-access) as a workaround.
 
 ### How can Windows acquire an IP address from my router?
@@ -296,13 +300,13 @@ kubectl apply -f kubernetes.yml
     - 'c *:* rwm'
   ```
 
-> [!NOTE]  
+> [!NOTE]
 > In this mode, the container and Windows will each have their own separate IPs.
 
 ### How do I add multiple disks?
 
   To create additional disks, modify your compose file like this:
-  
+
   ```yaml
   environment:
     DISK2_SIZE: "32G"
@@ -349,13 +353,13 @@ kubectl apply -f kubernetes.yml
 
   If you receive an error from `kvm-ok` indicating that KVM acceleration can't be used, please check whether:
 
-  - the virtualization extensions (`Intel VT-x` or `AMD SVM`) are enabled in your BIOS.
+- the virtualization extensions (`Intel VT-x` or `AMD SVM`) are enabled in your BIOS.
 
-  - you are running an operating system that supports them, like Linux or Windows 11 (macOS and Windows 10 do not unfortunately).
+- you are running an operating system that supports them, like Linux or Windows 11 (macOS and Windows 10 do not unfortunately).
 
-  - you enabled "nested virtualization" if you are running the container inside a virtual machine.
+- you enabled "nested virtualization" if you are running the container inside a virtual machine.
 
-  - you are not using a cloud provider, as most of them do not allow nested virtualization for their VPS's.
+- you are not using a cloud provider, as most of them do not allow nested virtualization for their VPS's.
 
   If you didn't receive any error from `kvm-ok` at all, but the container still complains that `/dev/kvm` is missing, it might help to add `privileged: true` to your compose file (or `--privileged` to your `run` command), to rule out any permission issue.
 
@@ -368,18 +372,19 @@ kubectl apply -f kubernetes.yml
   Yes, this project contains only open-source code and does not distribute any copyrighted material. Any product keys found in the code are just generic placeholders provided by Microsoft for trial purposes. So under all applicable laws, this project will be considered legal.
 
 ## Stars 🌟
-[![Stars](https://starchart.cc/dockur/windows.svg?variant=adaptive)](https://starchart.cc/dockur/windows)
+
+[![Stars](https://starchart.cc/joelvaneenwyk/container-windows.svg?variant=adaptive)](https://starchart.cc/joelvaneenwyk/container-windows)
 
 ## Disclaimer ⚖️
 
 *The product names, logos, brands, and other trademarks referred to within this project are the property of their respective trademark holders. This project is not affiliated, sponsored, or endorsed by Microsoft Corporation.*
 
-[build_url]: https://github.com/dockur/windows/
+[build_url]: https://github.com/joelvaneenwyk/container-windows/
 [hub_url]: https://hub.docker.com/r/dockurr/windows/
 [tag_url]: https://hub.docker.com/r/dockurr/windows/tags
-[pkg_url]: https://github.com/dockur/windows/pkgs/container/windows
+[pkg_url]: https://github.com/joelvaneenwyk/container-windows/pkgs/container/windows
 
-[Build]: https://github.com/dockur/windows/actions/workflows/build.yml/badge.svg
+[Build]: https://github.com/joelvaneenwyk/container-windows/actions/workflows/build.yml/badge.svg
 [Size]: https://img.shields.io/docker/image-size/dockurr/windows/latest?color=066da5&label=size
 [Pulls]: https://img.shields.io/docker/pulls/dockurr/windows.svg?style=flat&label=pulls&logo=docker
 [Version]: https://img.shields.io/docker/v/dockurr/windows/latest?arch=amd64&sort=semver&color=066da5
