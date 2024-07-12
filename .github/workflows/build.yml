@@ -3,13 +3,6 @@ name: Build
 on:
   push:
     branches: [main, develop]
-    paths-ignore:
-      - '**/*.md'
-      - '**/*.yml'
-      - '.gitignore'
-      - '.dockerignore'
-      - '.github/**'
-      - '.github/workflows/**'
   pull_request:
     branches: [main, develop]
   workflow_dispatch:
@@ -20,8 +13,27 @@ concurrency:
 
 jobs:
   shellcheck:
-    name: Test
-    uses: ./.github/workflows/check.yml
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -x --source-path=src -e SC1091 -e SC2001 -e SC2002 -e SC2034 -e SC2064 -e SC2153 -e SC2317 -e SC2028
+
+      - name: Validate XML
+        uses: action-pack/valid-xml@v1
+        with:
+          path: "assets"
+          file-endings: ".xml"
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          ignore: DL3008
+          failure-threshold: warning
 
   build:
     name: Build
@@ -86,8 +98,8 @@ jobs:
       - name: Create a release
         uses: action-pack/github-release@v2
         with:
-          tag: 'v${{ steps.meta.outputs.version }}'
-          title: 'v${{ steps.meta.outputs.version }}'
+          tag: "v${{ steps.meta.outputs.version }}"
+          title: "v${{ steps.meta.outputs.version }}"
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Increment version variable
@@ -101,3 +113,12 @@ jobs:
           url: ${{ secrets.GITLAB_URL }}
           token: ${{ secrets.GITLAB_TOKEN }}
           username: ${{ secrets.GITLAB_USERNAME }}
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_REPO }}
+          short-description: ${{ github.event.repository.description }}
+          readme-filepath: ./README.md
