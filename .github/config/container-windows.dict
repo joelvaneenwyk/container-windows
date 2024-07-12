@@ -12,6 +12,8 @@ bootable
 bootdisk
 BOOTMGR
 Bootoff
+buildx
+Buildx
 BYXHG
 cabextract
 CCCOMA
@@ -85,6 +87,7 @@ NOWARNINGS
 Nsect
 NTFS
 nviostor
+opencontainers
 pidfile
 polski
 portugues
